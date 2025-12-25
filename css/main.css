@@ -1,0 +1,583 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+  
+/* base css start */
+* {
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none;
+}
+
+body {
+    scrollbar-width: none;
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+
+    background-color: #1F1B16;
+}
+
+/* base css end */
+
+
+/* navbar start */
+.main-navbar {
+    background-color:  #1F1B16;
+    height: 60px;
+    color: #FFF9F2;
+    top: 0;
+    position: sticky;
+    z-index: 1;
+}
+
+.main-navbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    height: 100%;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+.logo {
+  /*  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
+    font-size: 30px;
+    color: rgb(255, 70, 70);
+}
+
+.main-navbar-wrapper-menu-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    column-gap: 30px;
+    /* her bir container arasını acmak için kulanılır */
+}
+
+.main-navbar-wrapper-menu-list-item {
+    cursor: pointer;
+    /*üsütne geldiğinde tıklana bilir yapar*/
+}
+
+.main-navbar-wrapper-menu-list-item a {
+    text-decoration: none;
+    color: #D7CCC8;
+}
+
+.main-navbar-wrapper-menu-list-item:hover {
+    font-weight: bold;
+}
+
+.main-navbar-wrapper-profile-text-container {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    line-height: 1;
+    /*aynı izaya getirmek için kullanılırı */
+}
+
+.main-navbar-wrapper-toggle {
+    width: 40px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: #FFF9F2;
+    border: 1px solid #000000;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+
+}
+
+.toggle-icons {
+    color: goldenrod;
+}
+
+.toggle-ball {
+    width: 18px;
+    height: 18px;
+    background-color: #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    right: 1px;
+}
+
+.main-navbar-wrapper-profile-container {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+/* navbar end */
+
+
+/* featured content start  */
+
+
+
+
+
+/* ----- Ana yapılar ----- */
+.featured-content {
+    background-image: url(../png/background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: translateX(100px);
+    transition: all 0.8s ease;
+}
+
+.featured-content.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.text-animate-target {
+    color: white;
+    margin-bottom: 20px;
+    width: 50%;
+    font-size: 32px;
+    text-shadow: 1px 1px 3px black;
+}
+
+.text {
+    transform: translateY(-40px);
+}
+
+.text.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease-out;
+}
+
+.featured-content p {
+    color: white;
+    max-width: 600px;
+    font-size: 18px;
+    text-shadow: 1px 1px 3px black;
+    margin-bottom: 30px;
+    width: 60%;
+}
+
+#arama {
+    width: 30%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0 0, 0.15);
+}
+/* deneme start */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #1F1B16;
+    height: 100%;
+    justify-content: center;
+    padding: 30px 20px;
+
+}
+
+
+.card {
+    width: calc(25% - 20px); /* Masaüstü görünüm için */
+    background: #1F1B16;
+    color: #D7CCC8; /* Açık toprak tonu */
+   /* font-family: 'Merriweather', serif;*/
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Taşmaları engellemek için önemli */
+}
+.card:hover{
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgb(0, 150, 255, 0.4);
+}
+@media (max-width: 1024px) {
+    .card {
+        width: calc(50% - 20px); /* Tablet görünüm: 2 sütun */
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 100%; /* Mobil görünüm: tek sütun */
+    }
+}
+
+
+.card img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #D7CCC8;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #D7CCC8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.content-wrapper {
+    margin-left: 20px;
+}
+
+.featured-title {
+  /*  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    color: #FFF9F2;
+    font-size: 52px;
+}
+
+.featured-desrc {
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 30px 0px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #FFF9F2;
+   /* font-family: Arial, Helvetica, sans-serif;*/
+}
+
+/* ınput start */
+.box {
+    max-width: 400px;
+    width: 100%;
+}
+
+#check:checked~.search-box {
+    max-width: 380px;
+}
+
+.search-box {
+    position: relative;
+    height: 50px;
+    max-width: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    transition: all 0.3s ease;
+}
+
+.search-box input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.icon {
+    position: absolute;
+    right: 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    height: 100%;
+    color: #4E342E;
+    width: 50px;
+    background: red;
+    border-radius: 25px;
+}
+
+#arama:checked~.icon {
+    background: #4E342E;
+    color: #FFFFFF;
+    width: 60px;
+    border-radius: 0px 25px 25px 0px;
+}
+
+#check {
+    display: none;
+}
+
+/* ınput end */
+/* deneme end */
+/* featured content end  */
+/* nut-list-container start  */
+.nut-list-container {
+
+    background-color: #FFF9F2;
+}
+
+.nutList {
+    padding: 0;
+    max-height: 300px;
+    column-gap: 30px;
+    transform: translateX(0);
+    transition: 1s all ease-in-out;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nutItem {
+    position: relative;
+}
+
+.nut-list-title {
+    color: #FFF9F2;
+}
+
+.nut-list-wrapper {
+    scrollbar-width: none;
+    overflow: auto;
+    background-color: #FFF9F2;
+    position: relative;
+    width: 100%;
+}
+
+.nutItem:hover .nutItemInfo {
+    opacity: 1;
+}
+
+.nutItem:hover .nutItemImg {
+    transform: scale(1.1);
+    margin: 0 30px;
+    opacity: 0.5;
+}
+
+.nutItemInfo {
+    background-color: rgb(40, 40, 40, 0.5);
+    color: #4E342E;
+    padding: 0 10px;
+    top: 5%;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    left: 30px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.nutItemImg {
+    width: 270px;
+    height: 175px;
+    transition: 1s all ease-in-out;
+    object-fit: cover;
+}
+
+.nut-list-container-two {
+    margin-left: 70px;
+    background-color: #FFF9F2;
+}
+
+
+/* nut-list-container end */
+/* hakkında start */
+.footer {
+
+    background: #14110F; /* Daha da koyu versiyon */
+    color: #D7CCC8;
+    border-top: 1px solid #3A312B;
+    padding: 20px 0;
+        
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+h3 {
+    font-size: 18px;
+   /* font-family: Arial, Helvetica, sans-serif;*/
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+}
+/* hakkında end*/
+.footer-container ul {
+    text-align: center;
+    padding: 0;
+    list-style-type: none;
+}
+
+.footer-container ul li {
+    padding: 7px;
+}
+
+.footer-container ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-container ul li a:hover {
+    color: #1F1B16;
+}
+
+.social-icon {
+    text-align: center;
+    padding: 0;
+}
+
+.social-icon li {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+
+.social-icon i {
+    color: white;
+    font-size: 25px;
+}
+
+.social-icon i:hover {
+    color: #1F1B16;
+}
+
+.bottom-bar {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 50px;
+}
+
+.bottom-bar p {
+    color: #D7CCC8;
+    font-size: 13px;
+    margin: 0;
+    padding: 7px;
+}
+
+.Description-one {
+    width: 50%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    height: 100%;
+    color: #EAE3D2;
+    display: inline-block;
+    
+}
+.Description-img-div{
+    text-align: center;
+}
+.html-img {
+    width: 40%;
+    height: 25%;
+}
+
+.Description-two-div {
+    align-items: flex-start;
+    color: #EAE3D2;
+}
+
+/* dark mode start */
+.main-navbar.active {
+    background-color: #4E342E;
+    color: #EAE3D2;
+}
+
+.nut-list-container-two.active {
+    background-color: #4E342E;
+}
+
+
+
+.nut-list-container.active {
+    background-color: #4E342E;
+}
+
+.main-navbar-wrapper-menu-list-item.active {
+    color: #EAE3D2;
+}
+
+.main-sidebar i.active {
+    color: #EAE3D2;
+}
+.main-navbar-wrapper-menu-list-item a.active{
+    color: #f8f8f8;
+}
+
+.main-navbar-wrapper-toggle.avcite {
+    background-color: #4E342E;
+}
+
+body.active {
+    background-color: #4E342E;
+}
+
+.nut-list-title.active {
+    color: #EAE3D2;
+}
+
+.toggle-ball.active {
+    transform: translateX(-20px);
+}
+
+.nut-list-wrapper.active {
+    background-color: #4E342E;
+}
+
+.nut-lis.active {
+    background-color: #4E342E;
+}
+.container.active{
+    background-color: #4E342E;
+}
+.card.active{
+    background-color: #4E342E;
+    color: #EAE3D2;
+}
+.card h3.active{
+    color: #EAE3D2;
+}
+.card a.active{
+    color: #EAE3D2;
+}
+.Description-two-div.active{
+    color: #EAE3D2;
+}
+#topBtn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #8b5a2b; /* premium kahve tonu */
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+  }
+  
+  #topBtn:hover {
+    transform: translateY(-3px);
+    background: #6f451f;
+  }
+  
+
+/* dark mode end */

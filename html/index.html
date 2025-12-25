@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kuruyemiş Arama</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" href="../png/Zenvita.png" sizes="512x512" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <!-- Başlık + Arama Alanı -->
+    <div class="featured-content">
+        <h2 class="text-animate-target">Kuruyemişler Hakkında Doğru Bilgiler</h2>
+        <p class="text-animate-target">Faydaları, türleri ve tüketim önerileri</p>
+        <input class="text animate-target" type="text" id="arama" placeholder="Fındık, Fıstık...">
+    </div>
+
+    <!-- Sonuçlar -->
+    <div class="container" id="sonuclar"></div>
+    <!-- Sonuçlar bitti -->
+
+    <button id="topBtn" aria-label="Yukarı çık">↑</button>
+
+    <!-- footer star -->
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="footer-container">
+                <h3>Hızlı Sayfalara Geçiş</h3>
+                <ul>
+                    <li><a href="../html/index.html">Ana sayfa</a></li>
+                </ul>
+            </div>
+            <div class="footer-container">
+                <h3>Bizi Takip Edin</h3>
+                <ul class="social-icon">
+                    <li><a
+                            href="https://accounts.google.com/v3/signin/identifier?flowEntry=ServiceLogin&flowName=GlifWebSignIn&hl=tr&ifkv=AfYwgwWD4LqWhnQJGsfm8yZnk4hF-Zw95Lw3g7mC9b1HjIeMRozFHwkm4GxOZV_NBdg0jtoq6pP0Aw&service=mail&dsh=S873524524%3A1757354397505381"><i
+                                class="bi bi-envelope-at"></i></a></li>
+                    <li><a href="https://www.instagram.com/cristiano/"><i class="bi bi-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>&copy;bu web site 2025 yılında Bir genç tarafında kurulmuştur</p>
+        </div>
+    </footer>
+
+    <!-- footer end -->
+    <script>
+        const kuruyemisler = [
+            {
+                "id": 1,
+                "name": "Fındık",
+                "img": "../png/kavrulmuş.png",
+                "description": "Lezzetli ve sağlıklı fındık...",
+                "details": "../html/kavrulmuşfındık.html"
+            },
+            {
+                "id": 2,
+                "name": "Fıstık",
+                "img": "../png/fıstık.png",
+                "description": "Lezzetli fıstık...",
+                "details": "../html/fıstık.html"
+            },
+            {
+                "id": 4,
+                "name": "Ceviz",
+                "img": "../png/ceviz.png",
+                "description": "Omega-3 deposu ceviz...",
+                "details": "../html/ceviz.html"
+            },
+            {
+                "id": 5,
+                "name": "Kabuklu Ceviz",
+                "img": "../png/kabukluceviz.png",
+                "description": "Taze ve doğal ceviz.",
+                "details": "../html/kabukluceviz.html"
+            },
+            {
+                "id": 6,
+                "name": "Badem",
+                "img": "../png/badem.png",
+                "description": "Çıtır ve lezzetli badem",
+                "details": "../html/badem.html"
+            },
+            {
+                "id": 7,
+                "name": "Kabuklu Badem",
+                "img": "../png/kabuklubadem.png",
+                "description": "Çıtır badem.",
+                "details": "../html/kabuklubadem.html"
+            },
+            {
+                "id": 8,
+                "name": "Kabuklu Fındık",
+                "img": "../png/kabuklufındık.png",
+                "description": "Doğal fındık",
+                "details": "../html/kabuklufındık.html"
+            },
+            {
+                "id": 9,
+                "name": "Kabuklu Fıstık",
+                "img": "../png/kabuklufıstık.png",
+                "description": "Kavrulmuş yer fıstığı.",
+                "details": "../html/kabuklufıstık.html"
+            },
+            {
+                "id": 10,
+                "name": "Çiğ Fındık",
+                "img": "../png/çiğfındık.png",
+                "description": "Çiğ fındık",
+                "details": "../html/çiğfındık.html"
+            },
+            {
+                "id": 11,
+                "name": "Kırmızı İç",
+                "img": "../png/kırmızı iç.png",
+                "description": "Yoğun aromalı iç fıstık.",
+                "details": "../html/kırmızıiç.html"
+            },
+            {
+                "id": 12,
+                "name": "Boz iç",
+                "img": "../png/boz iç.png",
+                "description": "Doğal ve taze iç fıstık.",
+                "details": "../html/boziç&meverdi.html"
+            },
+            {
+                "id": 13,
+                "name": "Kuru İncir",
+                "img": "../png/kuruincir.png",
+                "description": "Doğal ve tatlı.",
+                "details": "../html/incir.html"
+            },
+            {
+                "id": 14,
+                "name": "Kuru Erik",
+                "img": "../png/kuruerik.png",
+                "description": "Hafif ekşi tat.",
+                "details": "../html/erik.html"
+            },
+            {
+                "id": 16,
+                "name": "Kuru Kayısı",
+                "img": "../png/kurukayısı.png",
+                "description": "Yumuşak ve lezzetli.",
+                "details": "../html/kayısı.html"
+            },
+            {
+                "id": 17,
+                "name": "Kuru Üzüm",
+                "img": "../png/kuruüzüm.png",
+                "description": "Tatlı ve taze.",
+                "details": "../üzüm.html"
+            },
+            {
+                "id": 18,
+                "name": "İğde",
+                "img": "../png/igde.png",
+                "description": "Doğal ve hafif mayhoş.",
+                "details": "../html/iğde.html"
+            },
+            {
+                "id": 19,
+                "name": "Hurma",
+                "img": "../png/hurma.png",
+                "description": "Yumuşak ve tatlı.",
+                "details": "../html/hurma.html"
+            },
+            {
+                "id": 20,
+                "name": "Kahve",
+                "img": "../png/kahve.png",
+                "description": "Yoğun aromalı kahve.",
+                "details": "../html/kahve.html"
+            },
+            {
+                "id": 21,
+                "name": "Antep & siirt",
+                "img": "../png/antepfıstık.png",
+                "description": "Özel aromalı fıstık.",
+                "details": "../html/antep&siirt.html"
+            },
+            {
+                "id": 22,
+                "name": "Sarı leblebi",
+                "img": "../png/sarıleblebi.png",
+                "description": "Çıtır leblebi.",
+                "details": "../sarıleblebi.html"
+            },
+            {
+                "id": 23,
+                "name": "Köy Leblebi",
+                "img": "../png/köyleblebi.png",
+                "description": "Taze leblebi.",
+                "details": "../html/köyleblebi.html"
+            },
+            {
+                "id": 24,
+                "name": "Çıtır&Kıtır",
+                "img": "../png/kıtırleblebi.png",
+                "description": "Çıtır leblebi.",
+                "details": "../html/kıtır&çıtır.html"
+            },
+            {
+                "id": 25,
+                "name": "Kaju",
+                "img": "../png/kaju.png",
+                "description": "Lezzetli kaju.",
+                "details": "../html/kaju.html"
+            },
+            {
+                "id": 26,
+                "name": "Zarlı kaju",
+                "img": "../png/zarlıkaju.png",
+                "description": "Taze kaju.",
+                "details": "../html/zarlıkaju.html"
+            },
+            {
+                "id": 27,
+                "name": "Siyah çekirdek",
+                "img": "../png/siyahçekirdek.png",
+                "description": "Yoğun aromalı.",
+                "details": "../siyahçekirdek.html"
+            },
+            {
+                "id": 28,
+                "name": "İç Ay Çekirdek",
+                "img": "../png/içayçekirdek.png",
+                "description": "Taze ve çıtır.",
+                "details": "../html/içayçekirdek.html"
+            },
+            {
+                "id": 29,
+                "name": "İç Ay Kabak",
+                "img": "../png/içkabakçekirdek.png",
+                "description": "Taze ve çıtır.",
+                "details": "../html/içkabakçekirdek.html"
+            },
+            {
+                "id": 30,
+                "name": "Kabak Çekirdek",
+                "img": "../png/kabakçekirdek.png",
+                "description": "Doğal ve çıtır.",
+                "details": "../html/kabakçekirdek.html"
+            }
+
+
+        ];
+
+        const input = document.getElementById("arama");
+        const sonuclar = document.getElementById("sonuclar");
+
+        input.addEventListener("input", function () {
+            const aranan = this.value.toLowerCase();
+            const filtrelenmis = kuruyemisler.filter(item =>
+                item.name.toLowerCase().includes(aranan)
+            );
+            goster(filtrelenmis);
+        });
+
+        function goster(liste) {
+            sonuclar.innerHTML = "";
+
+            if (liste.length === 0) {
+                sonuclar.innerHTML = "<p>❌ Sonuç bulunamadı.</p>";
+                return;
+            }
+
+            liste.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "card";
+                div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <a href="${item.details}" >➕ Daha fazla bilgi</a>
+        `;
+                sonuclar.appendChild(div);
+            });
+        }
+
+        goster(kuruyemisler); // Sayfa açıldığında hepsini göster
+
+        window.addEventListener('load', () => {
+            document.querySelector('.featured-content').classList.add('animate');
+            document.querySelectorAll('.text').forEach(el => {
+                el.classList.add('animate');
+            });
+        });
+
+
+
+    </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
